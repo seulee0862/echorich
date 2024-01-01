@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    group:
+      "local": "local"
+      "default": "local"
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        default_batch_fetch_size: 100
