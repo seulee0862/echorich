@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import echorich.common.response.ApiResponse;
+import echorich.hr.employees.dto.response.EmployeeHistoryResponse;
 import echorich.hr.employees.dto.response.EmployeeInfoResponse;
 import echorich.hr.employees.service.EmployeeService;
 import jakarta.validation.constraints.NotNull;
@@ -23,4 +24,8 @@ public class EmployeeController {
 		return ApiResponse.success(employeeService.employeeInfo(employeeId));
 	}
 
+	@GetMapping("/history/{id}")
+	public ApiResponse<EmployeeHistoryResponse> employeeHistoryInfo(@NotNull @PathVariable("id") Long employeeId) {
+		return ApiResponse.success(employeeService.employeeHistoryInfo(employeeId));
+	}
 }

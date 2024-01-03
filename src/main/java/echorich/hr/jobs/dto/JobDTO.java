@@ -15,19 +15,14 @@ public class JobDTO {
 	private BigDecimal maxSalary;
 
 	public static JobDTO from (Job job) {
-		return new JobDTO(
-			job.getId(),
-			job.getJobTitle(),
-			job.getMinSalary(),
-			job.getMaxSalary()
-		);
+		return new JobDTO(job);
 	}
 
 	@Builder
-	public JobDTO(String jobId, String jobTitle, BigDecimal minSalary, BigDecimal maxSalary) {
-		this.jobId = jobId;
-		this.jobTitle = jobTitle;
-		this.minSalary = minSalary;
-		this.maxSalary = maxSalary;
+	protected JobDTO(Job job) {
+		this.jobId = job.getId();
+		this.jobTitle = job.getJobTitle();
+		this.minSalary = job.getMinSalary();
+		this.maxSalary = job.getMaxSalary();
 	}
 }
