@@ -1,15 +1,18 @@
-package echorich.hr.locations.dto;
+package echorich.hr.goup_location.locations.dto;
 
-import echorich.hr.countries.domain.Country;
-import echorich.hr.countries.dto.CountryDTO;
-import echorich.hr.locations.domain.Location;
-import echorich.hr.regions.domain.Region;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import echorich.hr.goup_location.countries.domain.Country;
+import echorich.hr.goup_location.countries.dto.CountryDTO;
+import echorich.hr.goup_location.locations.domain.Location;
+import echorich.hr.goup_location.regions.domain.Region;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 public class LocationDTO extends CountryDTO {
 
+	@JsonIgnore
 	private Long locationId;
 	private String streetAddress;
 	private String postalCode;

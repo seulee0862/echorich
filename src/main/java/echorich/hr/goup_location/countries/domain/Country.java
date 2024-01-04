@@ -1,6 +1,6 @@
-package echorich.hr.countries.domain;
+package echorich.hr.goup_location.countries.domain;
 
-import echorich.hr.regions.domain.Region;
+import echorich.hr.goup_location.regions.domain.Region;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

@@ -12,7 +12,7 @@ import lombok.Getter;
 public class EmployeeHistoryResponse {
 
 	private final Long employeeId;
-	@JsonProperty("JobHistories")
+	@JsonProperty("jobHistories")
 	private final List<JobHistoryDTO> jobHistoryDTOS;
 
 	public static EmployeeHistoryResponse of(Long employeeId, List<JobHistoryDTO> jobHistoryDTOS) {

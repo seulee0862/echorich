@@ -1,6 +1,6 @@
 package echorich.hr.department.domain;
 
-import echorich.hr.locations.domain.Location;
+import echorich.hr.goup_location.locations.domain.Location;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
