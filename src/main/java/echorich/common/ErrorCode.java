@@ -16,7 +16,7 @@ public enum ErrorCode {
 	//Job & JobHistory
 	NOT_EXIST_IN_DEPARTMENT(HttpStatus.NOT_FOUND, "J-001", "해당 부서에는 아직 직급 체계가 만들어지지 않았습니다."),
 
-	TEST_ERROR(HttpStatus.BAD_REQUEST, "TEST", "내부 에러가 발생했습니다.");
+	TEST_ERROR(HttpStatus.BAD_REQUEST, "TEST", "테스트 에러 발생.");
 
 	ErrorCode(HttpStatus httpStatus, String code, String message) {
 		this.httpStatus = httpStatus;
