@@ -65,7 +65,11 @@ public class EmployeeService {
 		return employeeRepository.existsById(employeeId);
 	}
 
-	private Employee findEmployeeWithDetailsById(Long employeeId) {
+	public List<Employee> findByDepartmentId(Long departmentId) {
+		return employeeRepository.findByDepartmentId(departmentId);
+	}
+
+	public Employee findEmployeeWithDetailsById(Long employeeId) {
 		return employeeRepository.findEmployeeWithDetailsById(employeeId)
 			.orElseThrow(() -> new BusinessException(ErrorCode.INVALID_EMPLOYEE_ID));
 	}

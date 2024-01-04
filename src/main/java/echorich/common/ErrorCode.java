@@ -13,6 +13,9 @@ public enum ErrorCode {
 	//Department ErrorCode
 	INVALID_DEPARTMENT_ID(HttpStatus.NOT_FOUND, "D-001", "존재하지 않는 부서 입니다."),
 
+	//Job & JobHistory
+	NOT_EXIST_IN_DEPARTMENT(HttpStatus.NOT_FOUND, "J-001", "해당 부서에는 아직 직급 체계가 만들어지지 않았습니다."),
+
 	TEST_ERROR(HttpStatus.BAD_REQUEST, "TEST", "내부 에러가 발생했습니다.");
 
 	ErrorCode(HttpStatus httpStatus, String code, String message) {
