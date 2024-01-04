@@ -3,25 +3,27 @@ package echorich.hr.employees.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import echorich.common.ErrorCode;
 import echorich.common.exception.customException.BusinessException;
-import echorich.hr.countries.domain.Country;
 import echorich.hr.department.dto.DepartmentDTO;
 import echorich.hr.employees.domain.Employee;
 import echorich.hr.employees.dto.EmployeeDTO;
 import echorich.hr.employees.dto.response.EmployeeHistoryResponse;
 import echorich.hr.employees.dto.response.EmployeeInfoResponse;
 import echorich.hr.employees.repository.EmployeeRepository;
+import echorich.hr.goup_location.countries.domain.Country;
+import echorich.hr.goup_location.locations.domain.Location;
+import echorich.hr.goup_location.locations.dto.LocationDTO;
+import echorich.hr.goup_location.regions.domain.Region;
 import echorich.hr.jobs.domain.JobHistory;
 import echorich.hr.jobs.dto.JobDTO;
 import echorich.hr.jobs.dto.JobHistoryDTO;
 import echorich.hr.jobs.servcice.JobHistoryService;
-import echorich.hr.locations.domain.Location;
-import echorich.hr.locations.dto.LocationDTO;
-import echorich.hr.regions.domain.Region;
 import lombok.RequiredArgsConstructor;
 
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Service
 public class EmployeeService {

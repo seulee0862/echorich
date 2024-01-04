@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import echorich.hr.department.dto.DepartmentDTO;
 import echorich.hr.employees.dto.EmployeeDTO;
+import echorich.hr.goup_location.locations.dto.LocationDTO;
 import echorich.hr.jobs.dto.JobDTO;
-import echorich.hr.locations.dto.LocationDTO;
 import lombok.Builder;
 import lombok.Getter;
 
