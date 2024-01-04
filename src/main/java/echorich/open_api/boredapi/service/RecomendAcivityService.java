@@ -7,20 +7,14 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import echorich.http_tool.WebCleintManager;
+
 @Service
 public class RecomendAcivityService {
 
 	public String getRecomendActivity() {
-		WebClient webClient = WebClient.builder()
-			.baseUrl("https://www.boredapi.com/api/")
-			.defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-			.build();
-
-		Map block = webClient.get()
-			.uri("activity/")
-			.retrieve()
-			.bodyToMono(Map.class)
-			.block();
+		WebClient webClient = WebCleintManager.getWebClient("https://www.boredapi.com/api/");
+		Map block = WebCleintManager.getBlock(webClient, "activity/");
 
 		return String.valueOf(block.get("activity"));
 	}
