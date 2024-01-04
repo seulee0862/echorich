@@ -32,6 +32,9 @@ dependencies {
 
     //swagger
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+
+    //webflux
+    implementation 'org.springframework:spring-webflux:6.1.1'
 }
 
 tasks.named('test') {

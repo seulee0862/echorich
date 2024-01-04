@@ -1,8 +1,9 @@
 spring:
   profiles:
     group:
-      "local": "local"
-      "default": "local"
+      "local": "local, naver"
+      "default": "local, naver"
+      "product" : "product, naver"
 
   jpa:
     hibernate:
