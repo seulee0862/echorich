@@ -19,18 +19,18 @@ public class JobSalaryHistoryService {
 
 	@Transactional
 	public void increaseJobSalary(Job job, BigDecimal increasePct) {
-		BigDecimal minSalaryIncrease = job.getMinSalary().multiply(increasePct);
-		BigDecimal maxSalaryIncrease = job.getMaxSalary().multiply(increasePct);
-		BigDecimal newMinSalary = job.getMinSalary().add(minSalaryIncrease);
-		BigDecimal newMaxSalary = job.getMaxSalary().add(maxSalaryIncrease);
+		BigDecimal nowMinSalary = job.getMinSalary();
+		BigDecimal nowMaxSalary = job.getMaxSalary();
+		BigDecimal minSalaryIncrease = nowMinSalary.multiply(increasePct);
+		BigDecimal maxSalaryIncrease = nowMaxSalary.multiply(increasePct);
 
-		job.increseMinSalry(newMinSalary);
-		job.increseMaxSalry(newMaxSalary);
+		job.increseMinSalry(nowMinSalary.add(minSalaryIncrease));
+		job.increseMaxSalry(nowMaxSalary.add(maxSalaryIncrease));
 
 		JobSalaryHistory jobSalaryHistory = JobSalaryHistory.of(
 			job,
-			job.getMinSalary().subtract(minSalaryIncrease),
-			job.getMaxSalary().subtract(maxSalaryIncrease)
+			nowMinSalary,
+			nowMaxSalary
 		);
 
 		save(jobSalaryHistory);

@@ -24,11 +24,12 @@ public class EmployeeSalaryHistoryService {
 
 		employees.forEach(
 			employee -> {
+				BigDecimal nowSalary = employee.getSalary();
 				BigDecimal increaseSalary = employee.getSalary().multiply(increasePct);
-				employee.updateSalary(employee.getSalary().add(increaseSalary));
+				employee.updateSalary(nowSalary.add(increaseSalary));
 
 				employeeSalaryHistories.add(
-					EmployeeSalaryHistory.of(employee.getSalary().subtract(increaseSalary), employee)
+					EmployeeSalaryHistory.of(nowSalary, employee)
 				);
 			}
 		);
