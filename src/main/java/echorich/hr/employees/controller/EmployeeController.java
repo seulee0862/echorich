@@ -24,7 +24,7 @@ public class EmployeeController {
 		return ApiResponse.success(employeeService.employeeInfo(employeeId));
 	}
 
-	@GetMapping("/history/{id}")
+	@GetMapping("/{id}/history")
 	public ApiResponse<EmployeeHistoryResponse> employeeHistoryInfo(@NotNull @PathVariable("id") Long employeeId) {
 		return ApiResponse.success(employeeService.employeeHistoryInfo(employeeId));
 	}

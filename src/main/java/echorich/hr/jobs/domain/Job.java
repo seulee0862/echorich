@@ -28,4 +28,12 @@ public class Job {
 
 	@Column(precision = 8, scale = 0)
 	private BigDecimal maxSalary;
+
+	public void increseMinSalry(BigDecimal newMinSalry) {
+		this.minSalary = newMinSalry;
+	}
+
+	public void increseMaxSalry(BigDecimal newMaxSalry) {
+		this.maxSalary = newMaxSalry;
+	}
 }

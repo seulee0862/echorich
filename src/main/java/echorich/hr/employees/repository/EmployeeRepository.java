@@ -1,5 +1,6 @@
 package echorich.hr.employees.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,4 +18,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 		"JOIN FETCH c.region r " +
 		"WHERE e.id = :employeeId")
 	Optional<Employee> findEmployeeWithDetailsById(Long employeeId);
+
+	List<Employee> findByDepartmentId(Long departmentId);
 }
