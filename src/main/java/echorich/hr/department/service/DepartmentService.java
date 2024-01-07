@@ -14,7 +14,7 @@ import echorich.hr.department.dto.request.IncreseDepartmentSalaryRequest;
 import echorich.hr.department.dto.response.DepartmentLocationResponse;
 import echorich.hr.department.respository.DepartmentRepository;
 import echorich.hr.employees.domain.Employee;
-import echorich.hr.employees.service.EmployeeSalaryHistoryService;
+import echorich.hr.employees.service.EmployeeSalaryService;
 import echorich.hr.employees.service.EmployeeService;
 import echorich.hr.goup_location.countries.domain.Country;
 import echorich.hr.goup_location.locations.domain.Location;
@@ -34,7 +34,7 @@ public class DepartmentService {
 	private final EmployeeService employeeService;
 	private final JobHistoryService jobHistoryService;
 	private final JobSalaryHistoryService jobSalaryHistoryService;
-	private final EmployeeSalaryHistoryService employeeSalaryHistoryService;
+	private final EmployeeSalaryService employeeSalaryService;
 
 	public DepartmentLocationResponse departmentLocationInfo(Long departmentId) {
 		Department department = findbyId(departmentId);
@@ -56,7 +56,7 @@ public class DepartmentService {
 		List<Employee> employees = employeeService.findByDepartmentId(departmentId);
 
 		jobSalaryHistoryService.increaseJobSalary(job, increasePct);
-		employeeSalaryHistoryService.increaseEmployeesSalary(employees, increasePct);
+		employeeSalaryService.increaseEmployeesSalary(employees, increasePct);
 
 		return departmentId;
 	}

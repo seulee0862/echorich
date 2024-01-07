@@ -9,14 +9,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import echorich.hr.employees.domain.Employee;
 import echorich.hr.employees.domain.EmployeeSalaryHistory;
-import echorich.hr.employees.repository.EmployeeSalaryHistoryRepository;
+import echorich.hr.employees.repository.EmployeeHistoryJdbcRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
-public class EmployeeSalaryHistoryService {
+public class EmployeeSalaryService {
 
-	private final EmployeeSalaryHistoryRepository employeeSalaryHistoryRepository;
+	private final EmployeeHistoryJdbcRepository employeeHistoryJdbcRepository;
 
 	@Transactional
 	public void increaseEmployeesSalary(List<Employee> employees, BigDecimal increasePct) {
@@ -34,11 +34,11 @@ public class EmployeeSalaryHistoryService {
 			}
 		);
 
-		save(employeeSalaryHistories);
+		saveAll(employeeSalaryHistories);
 	}
 
 	@Transactional
-	public void save(List<EmployeeSalaryHistory> employeeSalaryHistories) {
-		employeeSalaryHistoryRepository.saveAll(employeeSalaryHistories);
+	public Integer saveAll(final List<EmployeeSalaryHistory> employeeSalaryHistories) {
+		return employeeHistoryJdbcRepository.saveAll(employeeSalaryHistories);
 	}
 }

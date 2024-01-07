@@ -17,6 +17,7 @@ API DOCS: http://3.37.74.93:8080/swagger-ui/index.html
 - JPA
 - Swagger
 - OpenClient
+- Spring batch
 
 ---
 
